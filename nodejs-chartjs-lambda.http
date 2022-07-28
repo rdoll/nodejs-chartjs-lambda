@@ -1,0 +1,57 @@
+#
+# NodeJS ChartJS Lambda Tests
+#
+
+### Echo GET
+GET https://6dusvg5sjznuot24cyzmgcauhu0zzxhx.lambda-url.us-east-2.on.aws/
+
+
+### Echo POST
+POST https://6dusvg5sjznuot24cyzmgcauhu0zzxhx.lambda-url.us-east-2.on.aws/
+Content-Type: application/json
+
+{
+  "hello": "world"
+}
+
+### Generate Image
+POST https://6dusvg5sjznuot24cyzmgcauhu0zzxhx.lambda-url.us-east-2.on.aws/v1/image
+Content-Type: application/json
+
+{
+  "metadata": {
+    "width": 640,
+    "height": 480,
+    "bgColor": "white"
+  },
+  "data": {
+    "type": "line",
+    "data": {
+      "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+      "datasets": [
+        {
+          "label": "Current Year",
+          "data": [20, 30, 35, 32, 40, 41],
+          "borderColor": "red",
+          "backgroundColor": "red"
+        }, {
+          "label": "Preview Year",
+          "data": [18, 27, 37, 32, 38, 37],
+          "borderColor": "blue",
+          "backgroundColor": "blue"
+        }
+      ]
+    },
+    "options": {
+      "responsive": true,
+      "plugins": {
+        "legend": {"position": "top"},
+        "title": {
+          "display": true,
+          "text": "Example Chart"
+        }
+      }
+    }
+  }
+}
+
